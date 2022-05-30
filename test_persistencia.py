@@ -1,12 +1,13 @@
+"""
+Pruebas Persistencia
+"""
 import persistencia
-
-with open("pedidos.txt", "w", encoding="utf-8") as file:
-    file.write("")
-    file.close()
-
-    pedidos = [{"nombre": "Pedro", "apellidos": "Gil de Diego"},
-               {"nombre": "Michael", "apellidos": "Jordan"}]
-
-for n in pedidos:
-
-    persistencia.guardar_pedido(n['nombre'], n['apellidos'])
+def test_guardar_pedido():
+ """
+ Prueba general
+ """
+ with open("pedidos.txt", "w+", encoding="utf-8") as file:
+persistencia.guardar_pedido("Pedro", "Gil de Diego")
+persistencia.guardar_pedido("Michael", "Jordan")
+firstline = file.readline()
+secondline = file.readline()
