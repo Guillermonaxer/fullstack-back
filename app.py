@@ -1,5 +1,5 @@
 
-from flask import Flask
+"""APP backend"""
 from flask import Flask, request, redirect
 import persistencia
 
@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 @app.route("/pizza", methods=['POST'])
 def hello():
+    """Esta es la funcion de nuestro backend"""
 
     nombre = request.form.get("nombre")
     apellidos = request.form.get("apellidos")
