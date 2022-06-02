@@ -1,4 +1,4 @@
-"""Este fichero guardo el nombre y apellido en un txt"""
+"""Este fichero guarda el nombre y apellido en un txt"""
 
 def guardar_pedido(nombre, apellidos):
     """funcion que abre y escribe en un fichero"""
