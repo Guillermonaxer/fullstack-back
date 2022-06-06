@@ -8,23 +8,25 @@ app = Flask(__name__)
 @app.route("/pizza", methods=['POST'])
 @app.route("/checksize", methods=['POST'])
 def checksize():
-   """
-   Comprueba disponibilidad de un tamaño de pizza.
-   """
-   nombre = request.form.get("tamaño")
-   if nombre == 'S':
-      mensaje = 'No disponible'
-   if nombre != 'S' and nombre != 'selecciona':
+    """
+    Comprueba disponibilidad de un tamaño de pizza.
+    """
+    nombre = request.form.get("tamaño")
+    if nombre == 'S':
+       mensaje = 'No disponible'
+    if nombre != 'S' and nombre != 'selecciona':
       mensaje = 'Disponible'
-   if nombre == 'selecciona':
+    if nombre == 'selecciona':
       mensaje = 'Error:Debes seleccionar un tamaño'
 
-   return Response(mensaje, 200, {'Access-Control-Allow-Origin': '*'})
+    return Response(mensaje, 200, {'Access-Control-Allow-Origin': '*'})
    
 
 
 def hello():
-
+    """
+    Guardo pedido y redirecciono a solicita_pedido.
+    """
     nombre = request.form.get("nombre")
     apellidos = request.form.get("apellidos")
     print(nombre)
