@@ -1,14 +1,29 @@
 
-"""APP backend"""
-from flask import Flask, request, redirect
+from flask import Flask, request, redirect, Response
 import persistencia
 
 app = Flask(__name__)
 
 
 @app.route("/pizza", methods=['POST'])
+@app.route("/checksize", methods=['POST'])
+def checksize():
+   """
+   Comprueba disponibilidad de un tamaño de pizza.
+   """
+   nombre = request.form.get("tamaño")
+   if nombre == 'S':
+      mensaje = 'No disponible'
+   if nombre != 'S' and nombre != 'selecciona':
+      mensaje = 'Disponible'
+   if nombre == 'selecciona':
+      mensaje = 'Error:Debes seleccionar un tamaño'
+
+   return Response(mensaje, 200, {'Access-Control-Allow-Origin': '*'})
+   
+
+
 def hello():
-    """Esta es la funcion de nuestro backend"""
 
     nombre = request.form.get("nombre")
     apellidos = request.form.get("apellidos")
