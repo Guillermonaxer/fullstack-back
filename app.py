@@ -16,7 +16,7 @@ def checksize():
     nombre = request.form.get("tamaño")
     if nombre == 'S':
         mensaje = 'No disponible'
-    if nombre != 'S' and nombre != 'selecciona':
+    if not nombre in('S','selecciona'):
         mensaje = 'Disponible'
     if nombre == 'selecciona':
         mensaje = 'Error:Debes seleccionar un tamaño'
