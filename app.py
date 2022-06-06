@@ -1,4 +1,6 @@
-
+ """
+ Backend para la api de pizzas
+ """
 from flask import Flask, request, redirect, Response
 import persistencia
 
@@ -15,9 +17,9 @@ def checksize():
     if nombre == 'S':
        mensaje = 'No disponible'
     if nombre != 'S' and nombre != 'selecciona':
-      mensaje = 'Disponible'
+       mensaje = 'Disponible'
     if nombre == 'selecciona':
-      mensaje = 'Error:Debes seleccionar un tamaño'
+       mensaje = 'Error:Debes seleccionar un tamaño'
 
     return Response(mensaje, 200, {'Access-Control-Allow-Origin': '*'})
    
@@ -33,7 +35,7 @@ def hello():
     print(apellidos)
     # guardo nombre y apellidos en un txt(no me quedaba claro si era necesario o no)
     with open("pedidos.txt", "w", encoding="utf-8") as file:
-        file.write("")
-        file.close()
+         file.write("")
+         file.close()
     persistencia.guardar_pedido(nombre, apellidos)
     return redirect("http://localhost/master/solicita_pedido.html", code=302)
